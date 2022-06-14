@@ -1,0 +1,76 @@
+body {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 104, 255, 0.20772058823529416) 0%,
+    rgba(134, 255, 144, 1) 69%
+  );
+}
+
+.paragraph {
+  font-size: 2rem;
+  color: brown;
+}
+
+.label {
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.output {
+  border: 2px solid tomato;
+  border-radius: 1rem;
+  background: #fff;
+  font-weight: 800;
+  color: blue;
+}
+
+.guesses {
+  color: tomato;
+  padding: 7px;
+  font-weight: 700;
+  padding: 1rem;
+}
+
+.resultContainer {
+  background-color: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.resultWin {
+  background-color: lightgreen;
+  border-radius: 1rem;
+  box-shadow: 0 15px 10px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  text-align: center;
+}
+
+.resultLose {
+  background-color: lightsalmon;
+  border-radius: 1rem;
+  box-shadow: 0 15px 10px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  text-align: center;
+}
+
+.messageWin {
+  color: green;
+}
+
+.messageLose {
+  color: red;
+}
+
+.guessesBox {
+  border: 1px solid blue;
+  border-radius: 2px;
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+  background-color: #fff;
+}

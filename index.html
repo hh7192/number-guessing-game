@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <!-- <link rel="stylesheet" href="/css/fontawesome.css" /> -->
+    <title>HamidreZa | Number Guess Game</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="content m-4">
+        <h1 class="text-center display-3">Number Guessing Game</h1>
+        <h4 class="text-center text-warning display-4">
+          I bet you can't guess my number!
+        </h4>
+        <div class="d-flex justify-content-center flex-column">
+          <label for="userInput" class="label text-success text-uppercase mt-3"
+            >Tell me what you think between 1 - 100:</label
+          >
+          <input
+            type="text"
+            id="userInput"
+            class="form-control"
+            placeholder="Hurry up! I don't have all day!"
+          />
+          <button
+            type="text"
+            id="guessButton"
+            class="btn btn-success btn-lg mt-3"
+          >
+            Guess!
+          </button>
+        </div>
+        <p id="error"></p>
+        <p class="mt-4">
+          Your DAMN Guesses:
+          <span id="previousGuesses" class="guesses"></span>
+        </p>
+        <p>
+          Remaining Guesses before I KILL you!
+          <span id="remainingGuesses" class="guesses">5</span>
+        </p>
+        <div id="output" class="text-center"></div>
+      </div>
+      <div class="resultContainer mt-4" id="resultContainer">
+        <div class="text-center">
+          <h2 id="finalMessage"></h2>
+          <button class="btn btn-warning" id="resetButton">Again!</button>
+        </div>
+      </div>
+    </div>
+    <script src="js/script.js"></script>
+  </body>
+</html>
