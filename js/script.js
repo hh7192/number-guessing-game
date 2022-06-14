@@ -28,7 +28,8 @@ function runGame() {
             </span>
         `;
       setTimeout(() => error.remove(), 3000);
-    } else if (userInputValue > 100 || userInputValue < 1) {
+    }
+    if (userInputValue > 100 || userInputValue < 1) {
       userInput.value = "";
       error.innerHTML = `
             <span class='text-danger'>
