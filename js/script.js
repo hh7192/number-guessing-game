@@ -13,7 +13,7 @@ const finalMessage = document.querySelector("#finalMessage");
 let number = Math.ceil(Math.random() * 100);
 // console.log(number);
 let guesses = [];
-let chances = 5;
+let chances = 6;
 
 // -------------------- FUNCTIONS --------------------//
 // run the game
@@ -114,7 +114,9 @@ function updateUI() {
   if (chances === 0) {
     resultContainer.style.display = "block";
     finalMessage.innerHTML = `
-        <span class="resultLose messageLose">You Lost, Loser!</span>"
+        <span class="resultLose messageLose">
+            You Lost, Loser! The number was ${number}
+        </span>"
     `;
     userInput.disabled = true;
   }
@@ -125,7 +127,7 @@ function playAgain() {
   number = Math.ceil(Math.random() * 100);
   //   console.log(number);
   guesses = [];
-  chances = 10;
+  chances = 6;
   previousGuesses.innerHTML = "";
   remainingGuesses.innerHTML = chances;
   resultContainer.style.display = "none";
