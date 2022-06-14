@@ -19,85 +19,82 @@ let chances = 5;
 // run the game
 function runGame() {
   let userInputValue = Number(userInput.value);
-
-  if (isNaN(userInputValue)) {
-    userInput.value = "";
-    error.innerHTML = `
-        <span class='text-danger'>
-            That is not a number you fool!
-        </span>
-    `;
-    setTimeout(() => error.remove(), 3000);
+  if (userInputValue) {
+    if (isNaN(userInputValue)) {
+      userInput.value = "";
+      error.innerHTML = `
+            <span class='text-danger'>
+                That is not a number you fool!
+            </span>
+        `;
+      setTimeout(() => error.remove(), 3000);
+    } else if (userInputValue > 100 || userInputValue < 1) {
+      userInput.value = "";
+      error.innerHTML = `
+            <span class='text-danger'>
+                Which part of between 1 and 100 you didn't understand?!
+            </span>
+        `;
+      setTimeout(() => error.remove(), 3000);
+    }
   }
+  if (userInputValue < 100 && userInputValue > 1) {
+    if (userInputValue === number) {
+      output.innerHTML = `
+            <h4 class="output text-success m-5 p-3">
+                Bingo! Your Number was ${number} 
+            </h4>
+        `;
+      resultContainer.style.display = "block";
+      finalMessage.innerHTML = `
+            <span class="resultWin messageWin">
+                You Won, Smart Ass!
+            </span>"
+        `;
+      userInput.disabled = true;
+    } else if (
+      Math.abs(number - userInputValue) < 10 &&
+      userInputValue > number
+    )
+      output.innerHTML = `
+            <h4 class="output text-warning m-5 p-3">
+                Ooooo! My number is slightly lesser than your guess!
+            </h4>
+        `;
+    else if (Math.abs(number - userInputValue) < 10 && userInputValue < number)
+      output.innerHTML = `
+            <h4 class="output text-warning m-5 p-3">
+                Ooooo! My number is slightly higher than your guess!
+            </h4>
+        `;
+    else if (Math.abs(number - userInputValue) < 5 && userInputValue < number)
+      output.innerHTML = `
+            <h4 class="output text-danger m-5 p-3">
+                It's BOILING! Higher baby, HIGHER!
+            </h4>
+        `;
+    else if (Math.abs(number - userInputValue) < 5 && userInputValue > number)
+      output.innerHTML = `
+            <h4 class="output text-danger m-5 p-3">
+                It's BOILING! Lesser baby, LESSER!
+            </h4>
+        `;
 
-  if (userInputValue > 100 || userInputValue < 1) {
-    userInput.value = "";
-    error.innerHTML = `
-        <span class='text-danger'>
-            Which part of between 1 and 100 you didn't understand?!
-        </span>
-    `;
-    setTimeout(() => error.remove(), 3000);
+    if (Math.abs(number - userInputValue) >= 10 && userInputValue > number)
+      output.innerHTML = `
+            <h4 class="output m-5 p-3">
+                Haha! Way too High!
+            </h4>
+        `;
+    else if (Math.abs(number - userInputValue) >= 10 && userInputValue < number)
+      output.innerHTML = `
+            <h4 class="output m-5 p-3">
+                Haha! Way too Low!
+            </h4>
+        `;
+
+    updateUI();
   }
-
-  if (userInputValue === number) {
-    output.innerHTML = `
-        <h4 class="output text-success m-5 p-3">
-            Bingo! Your Number was ${number} 
-        </h4>
-    `;
-    resultContainer.style.display = "block";
-    finalMessage.innerHTML = `
-        <span class="resultWin messageWin">
-            You Won, Smart Ass!
-        </span>"
-    `;
-    userInput.disabled = true;
-  }
-
-  if (Math.abs(number - userInputValue) < 10 && userInputValue > number)
-    output.innerHTML = `
-        <h4 class="output text-warning m-5 p-3">
-            Ooooo! My number is slightly lesser than your guess!
-        </h4>
-    `;
-
-  if (Math.abs(number - userInputValue) < 10 && userInputValue < number)
-    output.innerHTML = `
-        <h4 class="output text-warning m-5 p-3">
-            Ooooo! My number is slightly higher than your guess!
-        </h4>
-    `;
-
-  if (Math.abs(number - userInputValue) < 5 && userInputValue < number)
-    output.innerHTML = `
-        <h4 class="output text-danger m-5 p-3">
-            It's BOILING! Higher baby, HIGHER!
-        </h4>
-    `;
-
-  if (Math.abs(number - userInputValue) < 5 && userInputValue > number)
-    output.innerHTML = `
-        <h4 class="output text-danger m-5 p-3">
-            It's BOILING! Lesser baby, LESSER!
-        </h4>
-    `;
-
-  if (Math.abs(number - userInputValue) >= 10 && userInputValue > number)
-    output.innerHTML = `
-        <h4 class="output m-5 p-3">
-            Haha! Way too High!
-        </h4>
-    `;
-
-  if (Math.abs(number - userInputValue) >= 10 && userInputValue < number)
-    output.innerHTML = `
-        <h4 class="output m-5 p-3">
-            Haha! Way too Low!
-        </h4>
-    `;
-
-  updateUI();
 }
 
 // update the UI on every entry
